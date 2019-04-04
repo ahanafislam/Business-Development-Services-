@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row mt-3">
+  <div class="col-md-10 mr-auto ml-auto">
+    <table class="table shadow">
+      <thead class="navbar-dark" style="color:white;">
+        <tr>
+          <th>#</th>
+          <th>Company</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>View Details</th>
+        </tr>
+      </thead>
+      <tbody class="background2">
+        {% for view_doc in view_doc %}
+        {% if view_doc.accept %}
+        <tr>
+          <td><img src="{{ view_doc.submitor.companyDetails.logo.url }}" alt="logo" width="40" height="40"></td>
+          <td>{{ view_doc.submitor.companyDetails.company_name }}</td>
+          <td>{{ view_doc.submitor.companyDetails.country }}</td>
+          <td>{{ view_doc.submitor.companyDetails.state }}</td>
+          <td>{{ view_doc.title }}</td>
+          <td>{{ view_doc.submit_date_pretty }}</td>
+          <td><button type="button" class="btn btn-primary" onclick="window.location='{% url 'svDetails' view_doc.id %}';" style="cursor:pointer;">Details</button></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

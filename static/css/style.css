@@ -1,0 +1,39 @@
+/* home page (login and signup page)*/
+.background{
+  background: url("../img/background.jpg");
+}
+
+.home_card{
+  background: rgba(255, 255, 255, .9);  border: 1px solid #f8c81a;
+}
+
+/* base template */
+
+body,.background2{
+  background-image: linear-gradient(to right,#e9f7f8,#bfe9f4);
+}
+
+.navbar-dark{
+  background-image: linear-gradient(to right,#95cdb4,#2d9598);
+}
+
+.btn-primary{
+  background-color: #41a09d;
+}
+
+.btn-primary:hover{
+  background-color: #2d9598;
+}
+
+.input-group-text{
+  background-color: #fff;
+}
+
+.custom-file{
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+label{
+  cursor:pointer;
+}

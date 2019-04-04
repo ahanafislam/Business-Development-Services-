@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <title>:: Business Development Services ::</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="background">
+
+  <div class="container">
+    <div class="jumbotron-fluid text-center" style='color: white;'>
+      <div class="container mt-3">
+        <h1 class="display-3 pb-2" style='color: #f8c81a;'><img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid" width="80" height="80">Business Development Services</h1>
+        <p class="lead " style='color: #fffff;'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam praesentium, blanditiis. Praesentium animi eos culpa doloribus repellendus adipisci laboriosam at optio commodi minus nobis autem, maiores nam consequuntur! Magnam, in!</p>
+      </div>
+    </div>
+  </div>
+  <div class=" container mt-4">
+    <div class="row">
+      <div class="col-md-4 ml-auto mr-auto">
+        <div class="card home_card">
+          <div class="card-body">
+            <h2 style='color: #2d9598;'>Login</h2>
+            <hr style='background: #f8c81a;'>
+            <form method="POST" action="{% url 'home' %}">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-md-12 md-6">
+                  {% if error%}
+                  <div class="badge alert-danger" style="color:red;">
+                    {{ error }}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+              </div>
+              <input class="btn btn-primary" type="submit" value="Login"><a href="{% url 'signup' %}" class="badge badge-light ml-2" style='color : #f4873a;'>Please Sinup! first, If you are new.</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="text-muted">
+  <div class="container text-center">
+    <p>©️ Product Hunt {% now "Y" %}</p>
+  </div>
+</footer>
+</body>
+</html>

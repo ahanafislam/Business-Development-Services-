@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <title>:: Business Development Services ::</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="background">
+
+  <div class="container">
+    <div class="jumbotron-fluid text-center" style='color: white;'>
+      <div class="container mt-3">
+        <h1 class="display-3 pb-2" style='color: #f8c81a;'><img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid" width="80" height="80">Business Development Services</h1>
+        <p class="lead " style='color: #fffff;'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam praesentium, blanditiis. Praesentium animi eos culpa doloribus repellendus adipisci laboriosam at optio commodi minus nobis autem, maiores nam consequuntur! Magnam, in!</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="card home_card">
+          <div class="card-body">
+            <h2 style='color: #2d9598;'>🏙 Your Company Details</h2>
+            <hr style='background: #f8c81a'>
+            <form method="POST" action="{% url 'companyDetails' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="company">Company Name</label>
+                </div>
+                <div class="col-md-6">
+                  <label for="logo">Company Logo</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input type="text" class="form-control" name="company" placeholder="Enter Your Company Name" required>
+                </div>
+                <div class="col-md-6 mt-auto mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name ="logo" id="logo">
+                    <label class="custom-file-label" for="logo">Upload Logo</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="website">Website</label>
+                  <input type="text" class="form-control" name="website" id="website" placeholder="Enter Company's Website Link">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="street_address">Street Address</label>
+                  <input type="text" class="form-control" name="street_address" id="street_address" placeholder="Enter Your Street Address">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" name="city" id="city" placeholder="Enter Your City">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" name="state" id="state" placeholder="Enter Your Sate">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="zip_code">Zip Code</label>
+                  <input type="text" class="form-control" name="zip_code" id="zip_code" placeholder="Enter Your Zip Code">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" name="country" id="country" placeholder="Enter Your Country" required>
+                </div>
+              </div>
+              <input class="btn btn-primary" type="submit" value="Let Start!">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-muted">
+    <div class="container text-center">
+      <p>©️ Product Hunt {% now "Y" %}</p>
+    </div>
+  </footer>
+</body>
+</html>

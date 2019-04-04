@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <a href="{% url 'notification'%}"><button type="button" class="btn btn-outline-danger mt-2" style="cursor:pointer;">
+      Notifications
+    </button></a>
+    <a href="{% url 'submited' %}"><button type="button" class="btn btn-outline-danger mt-2" style="cursor:pointer;">
+      Submited By Me
+    </button></a>
+  </div>
+  <!--main options-->
+  <div class="col-md-9 ml-auto">
+    <div class="shadow">
+      <h5 class="card-header navbar-dark mt-3">Featured</h5>
+      <div class="card-body">
+        <form class="col-md-8 ml-auto mr-auto" method="POST" action="{% url 'user_home' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% if error %}
+          <div class="alert alert-danger" role="alert">{{ error }}</div>
+          {% endif %}
+          <div class="form-group">
+            <label for="title">Title:</label>
+            {{ form.title }}
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            {{ form.description }}
+          </div>
+          <div class="input-group shadow-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="rajukCk"><input type="checkbox" id="rajukCk" name="rajukCk" onclick="rajukFunction()">RAJUK</label>
+            </div>
+            <div class="custom-file" id="rajuk">
+              {{ form.rajuk }}
+              <label class="custom-file-label">Upload Required Files</label>
+            </div>
+          </div>
+          <div class="input-group shadow-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text"><input type="checkbox" id="wasaCk" name="wasaCk" onclick="wasaFunction()">WASA</label>
+            </div>
+            <div class="custom-file" id="wasa">
+              {{ form.wasa }}
+              <label class="custom-file-label">Upload Required Files</label>
+            </div>
+          </div>
+
+          <div class="input-group shadow-sm mb-3">
+            <div class="input-group-prepend">
+              <label  class="input-group-text"><input type="checkbox" id="bankCk" name="bankCk" onclick="bankFunction()">Bangladesh Bank</label>
+            </div>
+            <div class="custom-file" id="bangladeshBank" >
+              {{ form.bangladeshBank }}
+              <label class="custom-file-label">Upload Required Files</label>
+            </div>
+          </div>
+
+          <div class="input-group shadow-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text"><input type="checkbox" id="titasCk" name="titasCk" onclick="titasFunction()">Titas GAS</label>
+            </div>
+            <div class="custom-file" id="titas" >
+              {{ form.titas }}
+              <label class="custom-file-label">Upload Required Files</label>
+            </div>
+          </div>
+
+          <div class="input-group shadow-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text"><input type="checkbox" id="pdbCk" name="pdbCk" onclick="pdbFunction()">PDB</label>
+            </div>
+            <div class="custom-file" id="pdb" >
+              {{ form.pdb }}
+              <label class="custom-file-label">Upload Required Files</label>
+            </div>
+          </div>
+          <div>
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/myScripts.js' %}"></script>
+{% endblock %}
